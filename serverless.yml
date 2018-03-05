@@ -1,0 +1,22 @@
+service: springmvc-lambda-test
+
+provider:
+  name: aws
+  runtime: java8
+  memorySize: 1024
+  timeout: 60
+  region: us-east-1
+
+package:
+  artifact: build/libs/springmvc-1.0-SNAPSHOT-all.jar
+
+functions:
+  ping:
+    handler: com.sysco.test.StreamLambdaHandler
+    events:
+      - http:
+          path: ping
+          method: get
+          cors: true
+
+           
