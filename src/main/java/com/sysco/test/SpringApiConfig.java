@@ -60,14 +60,9 @@ public class SpringApiConfig {
         };
     }
 
-    @Value("${jdbc.url}")
-    private String url;
-
-    @Value("${jdbc.username}")
-    private String userName;
-
-    @Value("${jdbc.password}")
-    private String password;
+    @Value("${jdbc.url}") String url;
+    @Value ("${jdbc.username}") String userName;
+    @Value ("${jdbc.password}") String password;
 
     @Bean
     public DataSource getDataSource() {

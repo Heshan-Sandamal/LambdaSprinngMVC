@@ -36,8 +36,13 @@ functions:
           cors: true
 
       - http:
-          path: v1.0/item/add
+          path: v1.0/items/add
           method: post
+          cors: true
+
+      - http:
+          path: v1.0/items
+          method: get
           cors: true
 
            

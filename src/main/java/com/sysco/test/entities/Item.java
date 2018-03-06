@@ -1,7 +1,9 @@
 package com.sysco.test.entities;
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
+@Entity
 public class Item {
     private Integer id;
     private String name;
@@ -25,6 +27,10 @@ public class Item {
     }
 
     public Item() {
+    }
+
+    public Item(Integer id) {
+        this.id = id;
     }
 
     public Integer getId() {
