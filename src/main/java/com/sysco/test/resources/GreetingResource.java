@@ -2,7 +2,9 @@ package com.sysco.test.resources;
 
 
 import com.sysco.test.entities.Greeting;
+import com.sysco.test.service.ItemService;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +19,7 @@ public class GreetingResource {
 
     private static final String template = "Greetings, %s!";
     private final AtomicLong counter = new AtomicLong();
+
 
     @RequestMapping(value="/v1.0/greeting", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "Responds with Greetings, {Name}",

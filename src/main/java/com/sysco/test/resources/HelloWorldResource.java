@@ -11,7 +11,7 @@ public class HelloWorldResource {
     @ApiOperation(value = "Responds with a fixed greeting", notes ="", response = String.class)
     @RequestMapping(value = "/v1.0/hello", method = RequestMethod.GET)
     public String index() {
-        return "Hello from Spring Boot!";
+        return "Hello from Spring MVC!";
     }
 
 }
