@@ -4,6 +4,7 @@ import com.sysco.test.entities.Greeting;
 import com.sysco.test.entities.Item;
 import com.sysco.test.service.ItemService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +30,8 @@ public class ItemResource {
     @ApiOperation(value = "Select  item, {id}",
             notes = "select item from database",
             response = Item.class)
-    public Item selectItem(@RequestParam int id) {
-        return itemService.selectItem(id);
+    public String selectItem(@RequestParam("id") String id) {
+        return itemService.selectItem(Integer.parseInt(id));
     }
 
 

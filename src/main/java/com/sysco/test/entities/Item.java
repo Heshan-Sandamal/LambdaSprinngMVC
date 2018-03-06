@@ -1,9 +1,8 @@
 package com.sysco.test.entities;
 
-import javax.persistence.Entity;
+
 import java.util.Objects;
 
-@Entity
 public class Item {
     private Integer id;
     private String name;

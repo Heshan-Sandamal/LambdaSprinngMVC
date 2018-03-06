@@ -16,7 +16,7 @@ public class ItemService {
         return itemDAO.addItem(item);
     }
 
-    public Item selectItem(int id){
+    public String selectItem(int id){
         return itemDAO.selectItem(id);
     }
 }

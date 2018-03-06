@@ -2,7 +2,6 @@ package com.sysco.test.dao;
 
 import com.sysco.test.entities.Item;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -20,10 +19,10 @@ public class ItemDao {
     }
 
 
-    public Item selectItem(int id){
+    public String selectItem(int id){
 
-        String sql = "Select * FROM item where id=?";
-        return (Item) this.jdbcTemplate.queryForObject(sql,new Object[]{id},new BeanPropertyRowMapper(Item.class));
+        String sql = "Select name FROM item where id=?";
+        return (String) this.jdbcTemplate.queryForObject(sql,new Object[]{id},String.class);
     }
 
 
