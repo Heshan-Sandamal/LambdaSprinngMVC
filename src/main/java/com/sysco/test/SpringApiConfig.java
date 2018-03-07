@@ -63,11 +63,12 @@ public class SpringApiConfig {
     @Value("${jdbc.url}") String url;
     @Value ("${jdbc.username}") String userName;
     @Value ("${jdbc.password}") String password;
+    @Value ("${jdbc.driverClassName}") String driverClassName;
 
     @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName(driverClassName);
         dataSource.setUrl(this.url);
         dataSource.setUsername(this.userName);
         dataSource.setPassword(this.password);

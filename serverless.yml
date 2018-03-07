@@ -23,7 +23,7 @@ package:
   artifact: build/libs/springmvc-1.0-SNAPSHOT-all.jar
 
 functions:
-  ping:
+  springmvctest-cpas:
     handler: com.sysco.test.StreamLambdaHandler
     events:
       - http:

@@ -11,7 +11,6 @@ public class ItemDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-
     public int addItem(Item item){
         String sql = "INSERT INTO item (name, category, vendor, stock)"
                 + " VALUES (?, ?, ?, ?)";
@@ -20,7 +19,6 @@ public class ItemDao {
 
 
     public String selectItem(int id){
-
         String sql = "Select name FROM item where id=?";
         return (String) this.jdbcTemplate.queryForObject(sql,new Object[]{id},String.class);
     }
