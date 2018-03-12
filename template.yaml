@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Serverless Spring MVC API
+Resources:
+  MyServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.sysco.test.StreamLambdaHandler::handleRequest
+      Runtime: java8
+      CodeUri: build/libs/springmvc-1.0-SNAPSHOT-all.jar
+      MemorySize: 1024
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 30
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+
+Outputs:
+  MyServiceApiSpringBoot:
+    Description: URL for application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.us-east-1.amazonaws.com/Prod/ping'
+    Export:
+      Name: MyServiceApiSpringBoot

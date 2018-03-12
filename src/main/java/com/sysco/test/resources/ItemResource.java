@@ -1,5 +1,8 @@
 package com.sysco.test.resources;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.sysco.test.entities.Item;
 import com.sysco.test.service.ItemService;
 import io.swagger.annotations.ApiOperation;
@@ -13,7 +16,7 @@ public class ItemResource {
     @Autowired
     ItemService itemService;
 
-    @RequestMapping(value = "/v1.0/items/add", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/v1.0/items/add", method = RequestMethod.POST, produces = {MediaType.TEXT_PLAIN_VALUE})
     @ApiOperation(value = "Responds with item, {Name}",
             notes = "Adding items to database",
             response = Item.class)
@@ -22,7 +25,7 @@ public class ItemResource {
     }
 
 
-    @RequestMapping(value = "/v1.0/items", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/v1.0/items", method = RequestMethod.GET, produces = {MediaType.TEXT_PLAIN_VALUE})
     @ApiOperation(value = "Select  item, {id}",
             notes = "select item from database",
             response = Item.class)
